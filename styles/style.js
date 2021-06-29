@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
 
 export const gStyle = StyleSheet.create({
-    main: {
-        flex: 1,
-        padding: 20, 
-        margin: 'auto'
+    box: {
+        width: '100%',
+        textAlign: 'center', 
+        backgroundColor: '#176788', 
+        marginTop: 10,
     },
     title: {
-        fontSize: 20,
-        color: '#333',
         fontFamily: 'mt-bold',
-        textAlign: 'center'
+        fontSize: 22,
+        textAlign: 'center',
+        marginTop: 10
     }
 })

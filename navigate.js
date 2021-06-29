@@ -1,6 +1,7 @@
 import React from 'react';
 import Main from './components/Main';
-import FullInfo from './components/FullInfo';
+import Exercise from './components/Exercise';
+import Workout from './components/Workout';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,16 +16,33 @@ export default function Navigate() {
                 component={Main}
                 options={
                     {
-                        title: 'Дневник прогресса',
+                        title: 'Дневник тренировок',
                         headerStyle: { backgroundColor: '#eb5d3d', height: 110 },
                         headerTitleStyle: { fontWeight: '600', textAlign: 'center', color: 'white', fontSize: 28, fontFamily: 'mt-bold' }
                     }
                 }
             />
             <Stack.Screen
-                name="FullInfo"
-                component={FullInfo}
-                options={{ title: 'Тренировка' }}
+                name="Workout"
+                component={Workout}
+                options={
+                    {
+                        title: 'Тренировка',
+                        headerStyle: { backgroundColor: '#eb5d3d', height: 110 },
+                        headerTitleStyle: { fontWeight: '600', textAlign: 'center', color: 'white', fontSize: 28, fontFamily: 'mt-bold' }
+                    }
+                }
+            />
+            <Stack.Screen
+                name="Exercise"
+                component={Exercise}
+                options={
+                    {
+                        title: 'Упражнение',
+                        headerStyle: { backgroundColor: '#eb5d3d', height: 110 },
+                        headerTitleStyle: { fontWeight: '600', textAlign: 'center', color: 'white', fontSize: 28, fontFamily: 'mt-bold' }
+                    }
+                }
             />
         </Stack.Navigator>
     </NavigationContainer>
