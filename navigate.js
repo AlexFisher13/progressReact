@@ -13,12 +13,18 @@ export default function Navigate() {
             <Stack.Screen
                 name="Main"
                 component={Main}
-                options={{title: 'Главная'}}
+                options={
+                    {
+                        title: 'Дневник прогресса',
+                        headerStyle: { backgroundColor: '#eb5d3d', height: 110 },
+                        headerTitleStyle: { fontWeight: '600', textAlign: 'center', color: 'white', fontSize: 28, fontFamily: 'mt-bold' }
+                    }
+                }
             />
             <Stack.Screen
                 name="FullInfo"
                 component={FullInfo}
-                options={{title: 'Статья'}}
+                options={{ title: 'Тренировка' }}
             />
         </Stack.Navigator>
     </NavigationContainer>
