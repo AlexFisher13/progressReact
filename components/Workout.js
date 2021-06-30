@@ -4,7 +4,6 @@ import { gStyle } from '../styles/style';
 
 export default function Workout({ route, navigation}) {
 
-
   return (
     <View>
       <Text style={gStyle.title}>Дата: {route.params.date.split('T')[0]}</Text>

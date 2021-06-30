@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList } from 'react-native';
-import Modal from 'react-native-modal';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, Button } from 'react-native';
 import { gStyle } from '../styles/style';
-import Form from './Form';
 
 export default function Main({ navigation }) {
 
@@ -22,33 +20,36 @@ export default function Main({ navigation }) {
       })
   }  
 
-  
 
-  const addWorkout = (workout) => {
-    setNews((list) => {
-      workout.key = Math.random().toString();
-      return [
-        workout,
-        ...list
-      ]
-    });
+  const addWorkout = () => {
+    let workout = {
+      id: Math.random().toString(36).substr(2, 11) + Math.random().toString(36).substr(2, 11),
+      date: new Date(),
+      exercise: []
+    };
+    let URL = 'https://progres.herokuapp.com/addworkout';
+    console.log(JSON.stringify(workout));
+    fetch(URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json;charset=utf-8'},
+        body: JSON.stringify(workout)
+      })
+      getWorkouts();
   }
 
   return (
     <View>
-      {/* <Modal>
-        <View>
-          <Text style={styles.title}>Добавить тренировку</Text>
-          <Form addWorkout={addWorkout}/>
-        </View>
-      </Modal> */}
-      <FlatList  data={workouts} keyExtractor={workouts.id} renderItem={({ item }) => (
-        <TouchableOpacity style={gStyle.box} onPress={() => navigation.navigate('Workout', item)}>
+      <Button title='Добавить тренировку' onPress={addWorkout}/>
+      <FlatList  data={workouts.reverse()} keyExtractor={workouts.id} renderItem={({ item }) => (
+        <TouchableOpacity 
+            style={gStyle.box} 
+            onPress={() => navigation.navigate('Workout', item)}>
           <Text style={gStyle.title}>Тренировка {item.date.split('T')[0]}</Text>
           <FlatList 
             data={item.exercise} 
             renderItem={ ({ item }) => (<Text>{item.name}</Text>) }
-            keyExtractor={ item => item.name } />
+            keyExtractor={ item => item.id }
+            />
         </TouchableOpacity>
       )} />
     </View>
