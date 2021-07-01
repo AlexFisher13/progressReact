@@ -5,6 +5,8 @@ import Workout from './components/Workout';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import {gStyle} from "./styles/style";
+import {View} from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -16,8 +18,8 @@ export default function Navigate() {
                 component={Main}
                 options={
                     {
-                        title: 'Дневник тренировок',
-                        headerStyle: { backgroundColor: '#eb5d3d', height: 110 },
+                        title: 'training progress',
+                        headerStyle: { backgroundColor: '#414141', height: 110, borderBottomWidth: 0 },
                         headerTitleStyle: { fontWeight: '600', textAlign: 'center', color: 'white', fontSize: 28, fontFamily: 'mt-bold' }
                     }
                 }
@@ -28,7 +30,7 @@ export default function Navigate() {
                 options={
                     {
                         title: 'Тренировка',
-                        headerStyle: { backgroundColor: '#eb5d3d', height: 110 },
+                        headerStyle: { backgroundColor: '#414141', height: 110, borderBottomWidth: 0 },
                         headerTitleStyle: { fontWeight: '600', textAlign: 'center', color: 'white', fontSize: 28, fontFamily: 'mt-bold' }
                     }
                 }
@@ -39,7 +41,7 @@ export default function Navigate() {
                 options={
                     {
                         title: 'Упражнение',
-                        headerStyle: { backgroundColor: '#eb5d3d', height: 110 },
+                        headerStyle: { backgroundColor: '#414141', height: 110, borderBottomWidth: 0 },
                         headerTitleStyle: { fontWeight: '600', textAlign: 'center', color: 'white', fontSize: 28, fontFamily: 'mt-bold' }
                     }
                 }

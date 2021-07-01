@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, Button } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, Pressable } from 'react-native';
 import { gStyle } from '../styles/style';
 
 export default function Main({ navigation }) {
@@ -38,16 +38,16 @@ export default function Main({ navigation }) {
   }
 
   return (
-    <View>
-      <Button title='Добавить тренировку' onPress={addWorkout}/>
+    <View style={gStyle.body}>
+        <Pressable style={gStyle.button} onPress={addWorkout}>ADD WORKOUT</Pressable>
       <FlatList  data={workouts.reverse()} keyExtractor={workouts.id} renderItem={({ item }) => (
-        <TouchableOpacity 
+        <TouchableOpacity
             style={gStyle.box} 
             onPress={() => navigation.navigate('Workout', item)}>
-          <Text style={gStyle.title}>Тренировка {item.date.split('T')[0]}</Text>
+          <Text style={gStyle.title}>{item.date.split('T')[0]}</Text>
           <FlatList 
             data={item.exercise} 
-            renderItem={ ({ item }) => (<Text>{item.name}</Text>) }
+            renderItem={ ({ item }) => (<Text style={gStyle.subtitle}>{item.name}</Text>) }
             keyExtractor={ item => item.id }
             />
         </TouchableOpacity>

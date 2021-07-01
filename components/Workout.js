@@ -5,8 +5,8 @@ import { gStyle } from '../styles/style';
 export default function Workout({ route, navigation}) {
 
   return (
-    <View>
-      <Text style={gStyle.title}>Дата: {route.params.date.split('T')[0]}</Text>
+    <View style={gStyle.body}>
+      <Text style={gStyle.button} >Дата: {route.params.date.split('T')[0]}</Text>
       <FlatList 
             data={route.params.exercise} 
             renderItem={ ({ item }) => (
