@@ -39,5 +39,27 @@ export const gStyle = StyleSheet.create({
         backgroundColor: '#2a2a2a',
         width: 300,
         margin: 'auto'
+    },
+    vectorButton: {
+        color: '#888888',
+        fontSize: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        elevation: 3,
+        width: '100%',
+        margin: 'auto',
+        marginTop: 5
+    },
+    dateTitle: {
+        fontFamily: 'mt-light',
+        color: '#fda75b',
+        margin: 'auto'
+    },
+    exerciseTitle: {
+        fontFamily: 'mt-bold',
+        color: 'silver',
+        margin: 'auto',
+        fontSize: 18,
+        marginBottom: 5
     }
 })
